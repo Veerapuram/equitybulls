@@ -73,10 +73,10 @@ $columns = array(
 // SQL server connection information
 
 $sql_details = array(
-    'user' => 'eqbulls',
-    'pass' => 'd1S~9nx9',
-    'db'   => 'eqbulls',
-    'host' => '208.91.198.197'
+    'user' => 'root',
+    'pass' => '',
+    'db'   => 'equitybulls',
+    'host' => 'localhost'
 );
  
 require( 'ssp.class.php' );

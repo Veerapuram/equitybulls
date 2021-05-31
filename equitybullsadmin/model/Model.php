@@ -73,9 +73,9 @@ class Model {
 			}
 		  }
 }
-		define('DB_HOST', '208.91.198.197');
-		define('DB_NAME', 'eqbulls');
+		define('DB_HOST', 'localhost');
+		define('DB_NAME', 'equitybulls');
 		define('DB_CHARSET', 'utf8');
-		define('DB_USER', 'eqbulls');
-		define('DB_PASSWORD', 'd1S~9nx9');
+		define('DB_USER', 'root');
+		define('DB_PASSWORD', '');
 ?>

@@ -17,7 +17,7 @@
 
     $companyResult  = $controller->listCompany();
     $newsCatResult  = $controller->listNewsCat();
-    $newsSrcResullt = $controller->listNewsSrc();
+    $newsSrcResult  = $controller->listNewsSrc();
     $fileResult     = $controller->listFiles();
 
     //print_r($_POST);
@@ -227,13 +227,32 @@
 							}?>			
     				</select>
 				   </div>
+           <div class="form-group">
+						<label>Update Company for Misssing ISIN</label>
+						<select id="updateCompany" name="updateCompany" class="form-control select2" style="width: 100%;">
+            <?php
+							if(!empty($companyResult))
+							{
+								$companyArray = json_decode( $companyResult, true );
+								if(!empty($companyArray))
+								{
+                  echo "<option value=0>Select a Company</option>";
+									foreach($companyArray as $companyInfo) {
+											$companyISIN  = $companyInfo['isin'];
+                      $companyName 	= $companyInfo['company_name'];
+											echo "<option value=".$companyISIN.">".$companyName."</option>";
+									}
+								}
+							}?>			
+    				</select>
+				   </div>
 				   <div class="form-group">
 						<label>News Source</label>
 						<select id="source" name="source" class="form-control select2" style="width: 100%;">
             <?php
-							if(!empty($newsSrcResullt))
+							if(!empty($newsSrcResult))
 							{
-								$sourceArray = json_decode( $newsSrcResullt, true );
+								$sourceArray = json_decode( $newsSrcResult, true );
 								if(!empty($sourceArray))
 								{
                   echo "<option value='0'>Select a Source</option>";
@@ -424,51 +443,54 @@ $(function () {
     //Initialize Select2 Elements
     $('.select2bs4').select2({theme: 'bootstrap4'})
     var table;
-    $("company").select2();
 });
 $("#company").on('change',function(){
       var companyISIN = $("#company").val();
-      console.log(companyISIN);
       $.ajax({ url: "../controller/NewsDetailsData.php",
          type: 'get',
          data: {companyISIN:companyISIN},
         success: function (output) {
                 if( companyISIN.length == 0)
                 {
-                  $("#newsMessage").val('');
-                  $("#keywords").val('');
+                  //$("#newsMessage").val('');
+                  //$("#keywords").val('');
                 }  
-                var obj = JSON.parse(output);
-                console.log(obj);
+                else
+                {
+                  var obj = JSON.parse(output);
+                }  
                 var overAllText = "";
                 var bseText = "";
                 var nseText = "";
                 var keywords = "";
-                var bseScripCode = 0;
+                var keyWordsTag = 0
                 $.each(obj, function(key,value) {
+                  jsonObj = [];
                   if(value.tag=="BSE")
                   {
                     bseText="Shares of " + value.company_name + " was last trading in " + value.tag + " at Rs. " + value.close + " as compared to the previous close of Rs. " + value.prevclose + " .";
                     bseText+="The total number of shares traded during the day was " + value.no_of_shrs + " in over " + value.no_trades + " trades.<br><br>The stock hit an intraday high of Rs. " + value.high + "  and intraday low of " + value.low + ".";
-                    bseText+="The net turnover during the day was Rs. " + value.net_turnov + ". <br>";
-                    bseScripCode = value.sc_code;
+                    bseText+="The net turnover during the day was Rs. " + value.net_turnov + ". <br><br>";
                     overAllText+=bseText;
+                    keyWordsTag = 1;
+                    keywords+="#"+value.company_keywords+' ';
                   }
                   else
                   {
                     nseText="Shares of " + value.company_name + " was last trading in "+ value.tag + " at Rs. "+ value.close +" as compared to the previous close of Rs. " + value.prevclose + " .";
                     nseText+="The total number of shares traded during the day was "+ value.no_of_shrs +" in over " + value.no_trades+ " trades.<br><br>The stock hit an intraday high of Rs. " + value.high + " and intraday low of " + value.low + ".";
-                    nseText+="The total traded value during the day was Rs. "+ value.net_turnov + ". <br>";
+                    nseText+="The total traded value during the day was Rs. "+ value.net_turnov + ". <br><br>";
+                    if(keyWordsTag == 0)
+                      keywords+="#"+value.company_keywords+' ';
                     overAllText+=nseText;   
+                    keyWordsTag = 0;
                   }
-                  keywords+=value.company_name+","+ value.sc_code+","+bseScripCode+","+value.industry_name+',';
                   $("#newsMessage").val(overAllText); 
                   $("#keywords").val(keywords);
                 });
             }
       });
 });
-
 $(document).ready(function() {
   table = $('#newsDetails').DataTable( {
         "processing": true,
@@ -495,12 +517,16 @@ $(document).ready(function() {
             { "data": "news_details_status" }
         ],
         "columnDefs": [
-                        { targets: [0], visible: false},
-                        { targets: [1], visible: false},
+                        { targets: [0], visible: true},
+                        { targets: [1], visible: true},
                         { targets: [2], visible: false},
                         { targets: [3], visible: false},
                         { targets: [4], visible: false},
-                        { targets: [7], visible: false}
+                        { targets: [7], visible: false},
+                        { targets: [10], visible: false},
+                        { targets: [11], visible: false},
+                        { targets: [12], visible: false},
+                        { targets: [13], visible: false},
         ],
     });
   });      
@@ -520,6 +546,8 @@ $(document).ready(function() {
     var description     = "";
     var newsStatus      = "";
     var status          = "";
+    $("#company").val(null).trigger("change");
+    
     newsID          = data.news_id;
     isin            = data.isin;
     isinMultiple    = data.isin_multiple;
@@ -533,6 +561,7 @@ $(document).ready(function() {
     description     = data.news_description;
     status          = data.news_status;
     newsStatus      = data.news_details_status;
+   
 
     $("#newsID").val(newsID);
     $("#newsID").val();

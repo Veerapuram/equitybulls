@@ -25,7 +25,7 @@
   <title>Equity Bulls | NSE Master </title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
    <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
@@ -355,12 +355,6 @@ $(function () {
       theme: 'bootstrap4'
     })
 });
-	//Date picker
-    $('#currencyDate').datetimepicker({
-        format: 'L'
-    });
-	//$("#currencyDate").data('datetimepicker').getFormattedDate('yyyy-mm-dd');
-  //Initialize Select2 Elements
 $(document).ready(function() {
     var table = $('#currencyDetails').DataTable({
 		"columnDefs": [
@@ -378,8 +372,7 @@ $(document).ready(function() {
 		currencyDate = moment(currencyDate).format('MM/DD/YYYY');  
 		
 		$('#currencyDate').val(currencyDate).val();
-		//alert($('#datepicker').val(currencyDate).val());
-		
+				
 		$('#currencyUS').val(data[2]);
 		$('#currencyEuro').val(data[3]);
 		$('#currencyPound').val(data[4]);

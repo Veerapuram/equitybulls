@@ -444,7 +444,6 @@
  
 <script>
 $(function () {
-	$( "#metalDate" ).datepicker();
   bsCustomFileInput.init();
     $('.select2').select2()
     //Initialize Select2 Elements
@@ -466,7 +465,7 @@ $(document).ready(function() {
         ]
 	});
 	$('#companyDetails tbody').on('click', 'tr', function () {
-        var data = table.row( this ).data();
+    var data = table.row( this ).data();
 		var companyID     = data[0];
 		var isin          = data[2];			
 		var industryID 	  = data[3];

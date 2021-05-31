@@ -45,12 +45,11 @@ class Controller {
 																	 :currency_uk_value,
 																	 :currency_yen_value
 																	 )",$data);
-		//header("Location:../view/CurrencyView.php");
-		//exit;
+		header("Location:../view/CurrencyView.php");
+		exit;
 	}
 	public function updCurrency($requestData)
 	{
-		//echo $requestData['currencyDate'];
 		$myDate = DateTime::createFromFormat('m/d/Y', $requestData['currencyDate']);
 		$requestData['currencyDate'] = $myDate->format('Y-m-d');
 		$data = array($requestData['currencyDate'],$requestData['currencyUS'],$requestData['currencyEuro'],$requestData['currencyPound'],$requestData['currencyYen'],$requestData['currencyID']);
@@ -66,8 +65,8 @@ class Controller {
 		}catch (Exception $ex) { 
 			  $this->error = $ex->getMessage(); 
 		}
-		//header("Location:../view/CurrencyView.php");
-		//exit;
+		header("Location:../view/CurrencyView.php");
+		exit;
 	}
 	public function delCurrency($requestData)
 	{
@@ -75,8 +74,8 @@ class Controller {
 																currency_master
 															WHERE 
 																currency_id  = ?",$requestData['currencyID']);
-		//header("Location:../view/CurrencyView.php");
-		//exit;
+		header("Location:../view/CurrencyView.php");
+		exit;
 	}	
 }
 

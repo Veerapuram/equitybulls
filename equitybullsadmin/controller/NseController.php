@@ -21,6 +21,7 @@ class Controller {
 	}
 	public function addNse($requestData)
 	{
+		$requestData['nseDOL'] = DateTime::createFromFormat('m/d/Y', $requestData['nseDOL'])->format('Y-m-d');
 		$data = array( 'isin' => $requestData['nseISIN'],
 				  'nse_symbol' => $requestData['nseSymbol'],
 				  'nse_dol' => $requestData['nseDOL'],
@@ -51,6 +52,7 @@ class Controller {
 	}
 	public function updNse($requestData)
 	{
+		$requestData['nseDOL'] = DateTime::createFromFormat('m/d/Y', $requestData['nseDOL'])->format('Y-m-d');
 		$data = array($requestData['nseISIN'],$requestData['nseSymbol'],$requestData['nseDOL'],$requestData['nsePUV'],$requestData['nseFaceValue'],$requestData['status'],$requestData['nseISIN']);
         try{		
 			$nseUpdateSQL = $this->model->insUpdRecords("UPDATE nse_master 

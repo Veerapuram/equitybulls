@@ -25,11 +25,13 @@ class Controller {
 												low,
 												net_turnov,
 												sc_code,
-												industry_name
+												industry_name,
+												company_keywords
 										FROM   company_master, bse_eod, industry_master
 										WHERE  isincode = isin
 										AND    isin IN (".$companyISIN.")
-										AND    company_master.industry_id = industry_master.industry_id)
+										AND    company_master.industry_id = industry_master.industry_id
+										)
 										UNION
 										(
 										SELECT 
@@ -44,7 +46,8 @@ class Controller {
 												low,
 												tottrdval,
 												symbol,
-												industry_name
+												industry_name,
+												company_keywords
 										FROM   company_master, nse_eod, industry_master
 										WHERE  nse_eod.isin = company_master.isin
 										AND    nse_eod.isin IN (".$companyISIN.")

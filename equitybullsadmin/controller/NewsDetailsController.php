@@ -141,11 +141,6 @@ class Controller {
 		{
 			$newsUpdateDateTime = $this->getISTDateTime();
 		}	
-		else
-		{
-			$newsUpdateDateTime = "0000-00-00 00:00:00";
-		}
-
 		if(isset($_FILES))
 		{
 			$uploaddir 	= "../uploads/";
@@ -159,6 +154,10 @@ class Controller {
 		{
 			$groupImage = (count($requestData["company"]) >1 )?$requestData['dispImgName']:"";
 		}	
+		if(isset($requestData["updateCompany"]) && ($requestData["updateCompany"] != 0))
+		{
+			$isin = $requestData["updateCompany"];
+		}
 		if(isset($requestData["company"]))
 		{
 			if(count($requestData["company"]) == 1)

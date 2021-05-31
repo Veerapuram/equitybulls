@@ -16,7 +16,6 @@
 		}
 		$nseResult = $controller->listNse();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +24,7 @@
   <title>Equity Bulls | NSE Master </title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
@@ -213,7 +213,7 @@
                   </div>
                   <div class="form-group">
 						<label for="nseDOL">Date of Launch<span class="required">*</span></label>
-						<input type="text" class="form-control form-control-border" required="required" id="nseDOL" name="nseDOL" placeholder="Enter Date of Launch">
+						<input type="text" required="required" id="nseDOL" name="nseDOL" readonly>
                   </div>
                   <div class="form-group">
 						<label for="nsePUV">NSE PUV<span class="required">*</span></label>
@@ -224,7 +224,7 @@
 						<input type="text" class="form-control form-control-border" required="required" id="nseFaceValue" name="nseFaceValue" placeholder="Enter Face Value">
                   </div>
 				  <div class="form-group">
-						<label>BSE Status<span class="required">*</span></label>
+						<label>NSE Status<span class="required">*</span></label>
 						<select name="status" id="status" name="status" class="form-control select2" style="width: 100%;">
 							<option value="A">Active</option>
 							<option value="I">Inactive</option>
@@ -232,8 +232,8 @@
 				   </div>				 
                 <!-- /.card-body -->
                 <div class="card-footer">
-  					<button name="submit" id="submit" type="submit" value="add" class="btn btn-primary">Submit</button>
-					<button name="reset" id="reset" type="submit" class="btn btn-primary">Reset</button>
+  			      		<button name="submit" id="submit" type="submit" value="add" class="btn btn-primary">Submit</button>
+			  		      <button name="reset" id="reset" type="submit" class="btn btn-primary">Reset</button>
                 </div>
               </form>
             </div>
@@ -329,6 +329,7 @@
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -342,7 +343,8 @@ $(function () {
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
-    })
+    });
+    $( "#nseDOL" ).datepicker();
 });
   //Initialize Select2 Elements
 $(document).ready(function() {
@@ -356,7 +358,7 @@ $(document).ready(function() {
 		$('#nsePUV').val(data[3]);
 		$('#nseFaceValue').val(data[4]);
 		
-		$("#status").select2().select2('val',bseStatus);
+		$("#status").select2().select2('val',nseStatus);
 		
 		$("#submit").html("Update");
 		$("#submit").val("update");
