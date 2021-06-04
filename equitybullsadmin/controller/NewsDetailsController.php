@@ -79,9 +79,7 @@ class Controller {
 			if(count($requestData["company"]) > 1)	
 					$isinMultiple = implode(",",$requestData["company"]);
 		}
-		echo $isinMultiple;
 		$newsPublishDateTime = $this->getISTDateTime();
-
 		$data =  array ( 'isin' 					=> $isin,
 						 'isin_multiple' 			=> $isinMultiple,
 						 'news_source_id' 			=> $requestData['source'],
@@ -144,9 +142,11 @@ class Controller {
 		if(isset($_FILES))
 		{
 			$uploaddir 	= "../uploads/";
-			$file_pointer = $uploaddir.$requestData['dispImgName'];
+			$file_pointer = $requestData['dispImgName'];
+			$isin = "";
+			echo $file_pointer;
 			if (file_exists($file_pointer) && ($file_pointer != ""))
-				unlink($file_pointer);
+				unlink($uploaddir.$file_pointer);
 			$groupImage = basename($_FILES['groupImage']['name']);
 			move_uploaded_file($_FILES['groupImage']['tmp_name'], $uploaddir.$groupImage);
 		}
@@ -154,10 +154,6 @@ class Controller {
 		{
 			$groupImage = (count($requestData["company"]) >1 )?$requestData['dispImgName']:"";
 		}	
-		if(isset($requestData["updateCompany"]) && ($requestData["updateCompany"] != 0))
-		{
-			$isin = $requestData["updateCompany"];
-		}
 		if(isset($requestData["company"]))
 		{
 			if(count($requestData["company"]) == 1)

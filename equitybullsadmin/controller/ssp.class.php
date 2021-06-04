@@ -15,7 +15,15 @@
  * @license MIT - http://datatables.net/license_mit
  */
 
- class SSP {
+
+// Please Remove below 4 lines as this is use in Datatatables test environment for your local or live environment please remove it or else it will not work
+$file = $_SERVER['DOCUMENT_ROOT'].'/datatables/pdo.php';
+if ( is_file( $file ) ) {
+	include( $file );
+}
+
+
+class SSP {
 	/**
 	 * Create the data output array for the DataTables rows
 	 *
@@ -251,7 +259,7 @@
 		// Main query to actually get the data
 		$data = self::sql_exec( $db, $bindings,
 			"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM$table
+			 FROM `$table`
 			 $where
 			 $order
 			 $limit"
@@ -260,7 +268,7 @@
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM  $table
+			 FROM   `$table`
 			 $where"
 		);
 		$recordsFiltered = $resFilterLength[0][0];
@@ -268,7 +276,7 @@
 		// Total data set length
 		$resTotalLength = self::sql_exec( $db,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM  $table"
+			 FROM   `$table`"
 		);
 		$recordsTotal = $resTotalLength[0][0];
 
@@ -276,7 +284,9 @@
 		 * Output
 		 */
 		return array(
-			"draw"            => isset ( $request['draw'] ) ? intval( $request['draw'] ) :	0,
+			"draw"            => isset ( $request['draw'] ) ?
+				intval( $request['draw'] ) :
+				0,
 			"recordsTotal"    => intval( $recordsTotal ),
 			"recordsFiltered" => intval( $recordsFiltered ),
 			"data"            => self::data_output( $columns, $data )
@@ -340,7 +350,7 @@
 		// Main query to actually get the data
 		$data = self::sql_exec( $db, $bindings,
 			"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM$table
+			 FROM `$table`
 			 $where
 			 $order
 			 $limit"
@@ -349,7 +359,7 @@
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM  $table
+			 FROM   `$table`
 			 $where"
 		);
 		$recordsFiltered = $resFilterLength[0][0];
@@ -357,7 +367,7 @@
 		// Total data set length
 		$resTotalLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM  $table ".
+			 FROM   `$table` ".
 			$whereAllSql
 		);
 		$recordsTotal = $resTotalLength[0][0];
@@ -537,3 +547,4 @@
 		return $a;
 	}
 }
+?>

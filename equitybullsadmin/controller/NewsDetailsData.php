@@ -25,12 +25,10 @@ class Controller {
 												low,
 												net_turnov,
 												sc_code,
-												industry_name,
 												company_keywords
-										FROM   company_master, bse_eod, industry_master
+										FROM   company_master, bse_eod
 										WHERE  isincode = isin
 										AND    isin IN (".$companyISIN.")
-										AND    company_master.industry_id = industry_master.industry_id
 										)
 										UNION
 										(
@@ -46,12 +44,10 @@ class Controller {
 												low,
 												tottrdval,
 												symbol,
-												industry_name,
 												company_keywords
-										FROM   company_master, nse_eod, industry_master
+										FROM   company_master, nse_eod
 										WHERE  nse_eod.isin = company_master.isin
-										AND    nse_eod.isin IN (".$companyISIN.")
-										AND    company_master.industry_id = industry_master.industry_id)
+										AND    nse_eod.isin IN (".$companyISIN."))
 										ORDER BY company_name, tag",null);
 			echo json_encode(count($exchangeList)== 0?null:$exchangeList);
 		}	

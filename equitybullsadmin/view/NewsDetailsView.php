@@ -227,25 +227,6 @@
 							}?>			
     				</select>
 				   </div>
-           <div class="form-group">
-						<label>Update Company for Misssing ISIN</label>
-						<select id="updateCompany" name="updateCompany" class="form-control select2" style="width: 100%;">
-            <?php
-							if(!empty($companyResult))
-							{
-								$companyArray = json_decode( $companyResult, true );
-								if(!empty($companyArray))
-								{
-                  echo "<option value=0>Select a Company</option>";
-									foreach($companyArray as $companyInfo) {
-											$companyISIN  = $companyInfo['isin'];
-                      $companyName 	= $companyInfo['company_name'];
-											echo "<option value=".$companyISIN.">".$companyName."</option>";
-									}
-								}
-							}?>			
-    				</select>
-				   </div>
 				   <div class="form-group">
 						<label>News Source</label>
 						<select id="source" name="source" class="form-control select2" style="width: 100%;">
@@ -355,7 +336,7 @@
           <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">List of Company Entries</h3>
+                <h3 class="card-title">List of News Entries</h3>
               </div>
 				<table id="newsDetails" name="newsDetails" class="display table table-bordered table-hover" style="width:100%">
 					<thead>
@@ -365,8 +346,6 @@
               <th>ISIN Multiple</th>
               <th>Source ID</th>
               <th>Category ID</th>
-              <th>Source </th>
-              <th>Category</th>
               <th>File ID</th>
               <th>File Group</th>
               <th>Title</th>
@@ -463,7 +442,9 @@ $("#company").on('change',function(){
                 var bseText = "";
                 var nseText = "";
                 var keywords = "";
-                var keyWordsTag = 0
+                var keyWordsTag = 0;
+                var retainFlag = 0;
+                var retainNews = "";
                 $.each(obj, function(key,value) {
                   jsonObj = [];
                   if(value.tag=="BSE")
@@ -485,7 +466,12 @@ $("#company").on('change',function(){
                     overAllText+=nseText;   
                     keyWordsTag = 0;
                   }
-                  $("#newsMessage").val(overAllText); 
+                  if(retainFlag == 0)
+                  {
+                    retainNews = $("#newsMessage").val();
+                    $("#newsMessage").val(retainNews);
+                  }
+                  $("#newsMessage").val(retainNews+overAllText); 
                   $("#keywords").val(keywords);
                 });
             }
@@ -505,8 +491,6 @@ $(document).ready(function() {
             { "data": "isin_multiple" },
             { "data": "news_source_id" },
             { "data": "news_category_id" },
-            { "data": "news_source_name" },
-            { "data": "news_category_name" },
             { "data": "file_individual" },
             { "data": "file_group" },
             { "data": "news_title" },
@@ -522,11 +506,14 @@ $(document).ready(function() {
                         { targets: [2], visible: false},
                         { targets: [3], visible: false},
                         { targets: [4], visible: false},
-                        { targets: [7], visible: false},
+                        { targets: [5], visible: false},
+                        { targets: [6], visible: false},
+                        { targets: [7], visible: true},
+                        { targets: [8], visible: false},
+                        { targets: [9], visible: false},
                         { targets: [10], visible: false},
                         { targets: [11], visible: false},
-                        { targets: [12], visible: false},
-                        { targets: [13], visible: false},
+                        { targets: [12], visible: true}
         ],
     });
   });      
@@ -561,7 +548,7 @@ $(document).ready(function() {
     description     = data.news_description;
     status          = data.news_status;
     newsStatus      = data.news_details_status;
-   
+
 
     $("#newsID").val(newsID);
     $("#newsID").val();
