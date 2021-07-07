@@ -512,7 +512,7 @@ $(document).ready(function() {
 		$("#reset").html("Delete");
 		$("#reset").val("delete");
 	});
-} );
+});
 </script>
 
 </body>

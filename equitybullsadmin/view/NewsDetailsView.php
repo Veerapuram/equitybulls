@@ -446,7 +446,6 @@ $("#company").on('change',function(){
                 var retainFlag = 0;
                 var retainNews = "";
                 $.each(obj, function(key,value) {
-                  jsonObj = [];
                   if(value.tag=="BSE")
                   {
                     bseText="Shares of " + value.company_name + " was last trading in " + value.tag + " at Rs. " + value.close + " as compared to the previous close of Rs. " + value.prevclose + " .";
