@@ -676,41 +676,9 @@
                     </div>
                     <div class="card-body">
                       <div class="row">
-						            <div class="col-3" style="text-align: center">
+                      <div class="col-3" style="text-align: center">
                           <label for="bnkGrsNPAAmt">Gross NPAs Amount<span class="required">*</span></label>
                           <input type="text" class="form-control form-control-border" id="bnkGrsNPAAmt" name="bnkGrsNPAAmt" value="BNK_GRS_NPA_AMT" readonly>
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkGrsNPAAmtCurrQuarter">Current Quarter<span class="required">*</span></label>
-                          <input type="text" id="bnkGrsAmtCurrQuarter" name="bnkGrsAmtCurrQuarter" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkGrsNPAAmtPreviousQuarter">Previous Quarter<span class="required">*</span></label>
-                          <input type="text" id="bnkGrsNPAAmtPreviousQuarter" name="bnkGrsNPAAmtPreviousQuarter" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkGrsNPAPreviousCQ">Previous Year CQ<span class="required">*</span></label>
-                          <input type="text" id="bnkGrsNPAAmtPreviousCQ" name="bnkGrsNPAAmtPreviousCQ" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-						            <div class="col-3" style="text-align: center">
-                          <label for="bnkNetNPAAmt">Net NPAs Amount<span class="required">*</span></label>
-                          <input type="text" class="form-control form-control-border" id="bnkNetNPAAmt" name="bnkNetNPAAmt" value="BNK_NET_NPA_AMT" readonly>
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkNetNPAAmtCurrQuarter">Current Quarter<span class="required">*</span></label>
-                          <input type="text" id="bnkNetNPAAmtCurrQuarter" name="bnkNetNPAAmtCurrQuarter" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkNetNPAAmtPreviousQuarter">Previous Quarter<span class="required">*</span></label>
-                          <input type="text" id="bnkNetNPAAmtPreviousQuarter" name="bnkNetNPAAmtPreviousQuarter" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-                        <div class="col-3" style="text-align: center">
-                          <label for="bnkNetNPAAmtPreviousCQ">Previous Year CQ<span class="required">*</span></label>
-                          <input type="text" id="bnkNetNPAAmtPreviousCQ" name="bnkNetNPAPreviousCQ" required="required" class="form-control form-control-border" value=" ">
-                        </div>
-						            <div class="col-3" style="text-align: center">
-                          <label for="bnkGrsNPAPer">Gross NPA %<span class="required">*</span></label>
-                          <input type="text" class="form-control form-control-border" id="bnkGrsNPAPer" name="bnkGrsNPAPer" value="BNK_GRS_NPA_PER" readonly>
                         </div>
                         <div class="col-3" style="text-align: center">
                           <label for="bnkGrsNPACurrQuarter">Current Quarter<span class="required">*</span></label>
@@ -725,8 +693,8 @@
                           <input type="text" id="bnkGrsNPAPreviousCQ" name="bnkGrsNPAPreviousCQ" required="required" class="form-control form-control-border" value=" ">
                         </div>
 						            <div class="col-3" style="text-align: center">
-                          <label for="bnkNetNPAPer">Net NPA%<span class="required">*</span></label>
-                          <input type="text" class="form-control form-control-border" id="bnkNetNPAPer" name="bnkNetNPAPer" value="BNK_NET_NPA_PER" readonly>
+                          <label for="bnkNetNPAAmt">Net NPAs Amount<span class="required">*</span></label>
+                          <input type="text" class="form-control form-control-border" id="bnkNetNPAAmt" name="bnkNetNPAAmt" value="BNK_NET_NPA_AMT" readonly>
                         </div>
                         <div class="col-3" style="text-align: center">
                           <label for="bnkNetNPACurrQuarter">Current Quarter<span class="required">*</span></label>
@@ -739,6 +707,38 @@
                         <div class="col-3" style="text-align: center">
                           <label for="bnkNetNPAPreviousCQ">Previous Year CQ<span class="required">*</span></label>
                           <input type="text" id="bnkNetNPAPreviousCQ" name="bnkNetNPAPreviousCQ" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+						            <div class="col-3" style="text-align: center">
+                          <label for="bnkGrsNPAPer">Gross NPA %<span class="required">*</span></label>
+                          <input type="text" class="form-control form-control-border" id="bnkGrsNPAPer" name="bnkGrsNPAPer" value="BNK_GRS_NPA_PER" readonly>
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkGrsNPACurrQuarterPer">Current Quarter<span class="required">*</span></label>
+                          <input type="text" id="bnkGrsNPACurrQuarterPer" name="bnkGrsNPACurrQuarterPer" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkGrsNPAPreviousQuarterPer">Previous Quarter<span class="required">*</span></label>
+                          <input type="text" id="bnkGrsNPAPreviousQuarterPer" name="bnkGrsNPAPreviousQuarterPer" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkGrsNPAPreviousCQPer">Previous Year CQ<span class="required">*</span></label>
+                          <input type="text" id="bnkGrsNPAPreviousCQPer" name="bnkGrsNPAPreviousCQPer" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+						            <div class="col-3" style="text-align: center">
+                          <label for="bnkNetNPAPer">Net NPA%<span class="required">*</span></label>
+                          <input type="text" class="form-control form-control-border" id="bnkNetNPAPer" name="bnkNetNPAPer" value="BNK_NET_NPA_PER" readonly>
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkNetNPACurrQuarterPer">Current Quarter<span class="required">*</span></label>
+                          <input type="text" id="bnkNetNPACurrQuarterPer" name="bnkNetNPACurrQuarterPer" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkNetNPAPreviousQuarterPer">Previous Quarter<span class="required">*</span></label>
+                          <input type="text" id="bnkNetNPAPreviousQuarterPer" name="bnkNetNPAPreviousQuarterPer" required="required" class="form-control form-control-border" value=" ">
+                        </div>
+                        <div class="col-3" style="text-align: center">
+                          <label for="bnkNetNPAPreviousCQPer">Previous Year CQ<span class="required">*</span></label>
+                          <input type="text" id="bnkNetNPAPreviousCQPer" name="bnkNetNPAPreviousCQPer" required="required" class="form-control form-control-border" value=" ">
                         </div>
 						            <div class="col-3" style="text-align: center">
                           <label for="bnkRetAsstPer">Return on Assets %<span class="required">*</span></label>
@@ -1029,12 +1029,17 @@ $(document).ready(function() {
     //if ($('#long').css('display') == 'none') {
     //  alert('Car 2 is hidden');
     //}
+    var newsTemplate="";
+    var bankTemplate="";
+    var tamilTemplate="";
     var action = "";
+
     if ($(this).val() == "add")
     {
       action = "Insert";
     }
-    if ($("#short").css('display') != 'none') {
+    if ($("#short").css('display') != 'none') 
+    {
       periodEnded = $("#periodEnded").val();
       yearEnded = $("#yearEnded").val();
       finResults = $('input[name="finResults"]:checked').val();
@@ -1062,10 +1067,33 @@ $(document).ready(function() {
       previousYearQuarterShort = finResults+' '+ resYear + (yearEnded - 1);
       var indicatorImage = "";
       var currentQuarterProfitValue= 0;
-      if((shTotCurrQuarter != " ") && (shTotPreviousQuarter != " ") && (shNetCurrQuarter != " ") && (shNetPreviousQuarter != " ") && (shEarCurrQuarter != " ") && (shEarPreviousQuarter != " ") && 
-        (shTotPreviousCQ != " ") && (shNetPreviousCQ != " ") && (shEarPreviousCQ != " ") && (shEarCurrentFY != " ") && (shEarPreviousFY != " ") && (shTotCurrentFY != " ") && (shTotPreviousFY) && (shNetCurrentFY != " ") &&
-        (shNetPreviousFY != " ")) 
-      {  
+      if ($("#short").css('banks') != 'none')
+      {
+        bnkGrsNPACurrQuarter = $("#bnkGrsNPACurrQuarter").val();
+        bnkGrsNPAPreviousQuarter = $("#bnkGrsNPAPreviousQuarter").val();
+        bnkGrsNPAPreviousCQ = $("#bnkGrsNPAPreviousCQ").val();
+        bnkNetNPACurrQuarter = $("#bnkNetNPACurrQuarter").val();
+        bnkNetNPAPreviousQuarter = $("#bnkNetNPAPreviousQuarter").val();
+        bnkNetNPAPreviousCQ = $("#bnkNetNPAPreviousCQ").val();
+        bnkGrsNPACurrQuarterPer = $("#bnkGrsNPACurrQuarterPer").val();
+        bnkGrsNPAPreviousQuarterPer = $("#bnkGrsNPAPreviousQuarterPer").val();
+        bnkGrsNPAPreviousCQPer = $("#bnkGrsNPAPreviousCQPer").val();
+        bnkNetNPACurrQuarterPer = $("#bnkNetNPACurrQuarterPer").val();
+        bnkNetNPAPreviousQuarterPer = $("#bnkNetNPAPreviousQuarterPer").val();
+        bnkNetNPAPreviousCQPer = $("#bnkNetNPAPreviousCQPer").val();
+        bnkRetAsstCurrQuarter = $("#bnkRetAsstCurrQuarter").val();
+        bnkRetAsstPreviousQuarter = $("#bnkRetAsstPreviousQuarter").val();
+        bnkRetAsstPreviousCQ = $("#bnkRetAsstPreviousCQ").val();
+        bnkCapAdeCurrQuarter = $("#bnkCapAdeCurrQuarter").val();
+        bnkCapAdePreviousQuarter = $("#bnkCapAdePreviousQuarter").val();
+        bnkCapAdePreviousCQ = $("#bnkCapAdePreviousCQ").val();
+        
+      }
+      //if((shTotCurrQuarter != " ") && (shTotPreviousQuarter != " ") && (shNetCurrQuarter != " ") && (shNetPreviousQuarter != " ") && (shEarCurrQuarter != " ") && (shEarPreviousQuarter != " ") && 
+      //  (shTotPreviousCQ != " ") && (shNetPreviousCQ != " ") && (shEarPreviousCQ != " ") && (shEarCurrentFY != " ") && (shEarPreviousFY != " ") && (shTotCurrentFY != " ") && (shTotPreviousFY) && (shNetCurrentFY != " ") &&
+      //  (shNetPreviousFY != " ")) 
+      //{  
+        alert("Inside Short")
         $.fn.caption = function (assignCaptionCalc)
         {
           var assignCaptionValue = "";
@@ -1166,7 +1194,66 @@ $(document).ready(function() {
           previousQuarter = "December 31, "+ (yearEnded - 1);
           previousQuarterShort = "Q4 "+ resYear + (yearEnded - 1);
         }
-        var newsTemplate = null;
+        $.fn.banksFunction = function()
+        {
+          bankTemplate =   '<b>Asset Quality:</b><br><br>';
+          bankTemplate +=  '<table width="100%" border="2" bordercolor="#789940" cellspacing="0" cellpadding="0">';
+          bankTemplate +=  '<tr>';
+          bankTemplate +=  '  <td class="newsheader"><b>Asset Quality</b></td>';
+          bankTemplate +=  '  <td class="newsheader"><b>'+currentQuarterShort+'</b></td>';
+          bankTemplate +=  '  <td class="newsheader"><b>'+previousQuarterShort+'</b></td>';
+          bankTemplate +=  '  <td class="newsheader"><b>'+previousYearQuarterShort+'</b></td>';
+          bankTemplate +=  '</tr>';
+          bankTemplate +=  '<tr>';
+          bankTemplate +=  ' <td><b>Gross NPA</b></td>';
+          bankTemplate +=  ' <td>&#x20B9;'+bnkGrsNPACurrQuarter+' crs</td>';
+          bankTemplate +=  ' <td>&#x20B9;'+bnkGrsNPAPreviousQuarter+'  crs</td>';
+          bankTemplate +=  ' <td>&#x20B9;'+bnkGrsNPAPreviousCQ+' crs</td>';
+          bankTemplate +=  '</tr><tr>';
+          bankTemplate +=  '  <td><b>Gross NPA %</b></td>';
+          bankTemplate +=  '  <td>'+bnkGrsNPACurrQuarterPer+'%</td>';
+          bankTemplate +=  '  <td>'+bnkGrsNPAPreviousQuarterPer+'%</td>';
+          bankTemplate +=  '  <td>'+bnkGrsNPAPreviousCQPer+'%</td>';
+          bankTemplate +=  '</tr>';
+          bankTemplate +=  '<tr>';
+          bankTemplate +=  '  <td><b>Net NPA</b></td>';
+          bankTemplate +=  '  <td>&#x20B9;'+bnkNetNPACurrQuarter+' crs</td>';
+          bankTemplate +=  '  <td>&#x20B9;'+bnkNetNPAPreviousQuarter+'  crs</td>';
+          bankTemplate +=  '  <td>&#x20B9;'+bnkNetNPAPreviousCQ+' crs</td>';
+          bankTemplate +=  '</tr>';
+          bankTemplate +=  '<tr>';
+          bankTemplate +=  '  <td><b>Net NPA %</b></td>';
+          bankTemplate +=  '  <td>'+bnkNetNPACurrQuarterPer+'%</td>';
+          bankTemplate +=  '  <td>'+bnkNetNPAPreviousQuarterPer+'%</td>';
+          bankTemplate +=  '  <td>'+bnkNetNPAPreviousCQPer+'%</td>';
+          bankTemplate +=  '</tr>';
+          bankTemplate +=  '</table><br><br>';
+          bankTemplate +=  'Gross NPA was at &#x20B9; '+bnkGrsNPACurrQuarter+' crs in '+currentQuarterShort+' against &#x20B9; '+bnkGrsNPAPreviousCQ+' crs in '+previousYearQuarterShort+'. The same was at &#x20B9; '+bnkGrsNPAPreviousQuarter+' crs in '+previousQuarterShort+'.<br><br>';
+          bankTemplate +=  'Net NPA was at &#x20B9; '+bnkNetNPACurrQuarter+' crs in '+currentQuarterShort+' against &#x20B9; '+bnkNetNPAPreviousCQ+' crs in '+previousYearQuarterShort+'. The same was at &#x20B9; '+bnkNetNPAPreviousQuarter+' crs in '+previousQuarterShort+'.<br><br>';
+          bankTemplate +=  "GNPA was at "+bnkGrsNPACurrQuarterPer+"% of Gross advances as on "+currentQuarter+" as compared to "+bnkGrsNPAPreviousCQPer+"% as on "+previousYearQuarterShort+" and "+bnkGrsNPAPreviousQuarterPer+"% as of "+prevYearCurrentQuarter+".<br><br>";
+          bankTemplate +=  "Net NPA was at "+bnkNetNPACurrQuarterPer+"% of Gross advances as on "+currentQuarter+" as compared to "+bnkNetNPAPreviousCQPer+"% as on "+previousYearQuarterShort+" and "+bnkNetNPAPreviousQuarterPer+"% as of "+prevYearCurrentQuarter+".<br><br>";
+          bankTemplate +=  '<table width="100%" border="2" bordercolor="#789940" cellspacing="0" cellpadding="0">';
+          bankTemplate +=  '  <tr>';
+          bankTemplate +=  '    <td class="newsheader"><b>Ratios</b></td>';
+          bankTemplate +=  '    <td class="newsheader"><b>'+currentQuarterShort+'</b></td>';
+          bankTemplate +=  '    <td class="newsheader"><b>'+previousQuarterShort+'</b></td>';
+          bankTemplate +=  '    <td class="newsheader"><b>'+previousYearQuarterShort+'</b></td>';
+          bankTemplate +=  '  </tr>';
+          bankTemplate +=  '    <tr>';
+          bankTemplate +=  '      <td><b>RoA %</b></td>';
+          bankTemplate +=  '      <td>'+bnkRetAsstCurrQuarter+'%</td>';
+          bankTemplate +=  '      <td>'+bnkRetAsstPreviousQuarter+'%</td>';
+          bankTemplate +=  '      <td>'+bnkRetAsstPreviousCQ+'%</td>';
+          bankTemplate +=  '    </tr>';
+          bankTemplate +=  '      <td><b>CAR (BASEL III) %</b></td>';
+          bankTemplate +=  '      <td>'+bnkCapAdeCurrQuarter+'%</td>';
+          bankTemplate +=  '      <td>'+bnkCapAdePreviousQuarter+'%</td>';
+          bankTemplate +=  '      <td>'+bnkCapAdePreviousCQ+'%</td>';
+          bankTemplate +=  '    </tr></table><br><br>';
+          bankTemplate +=  'Return on Average Assets (RoA) is at '+bnkRetAsstCurrQuarter+'% for '+currentQuarterShort+' against '+bnkRetAsstPreviousQuarter+'% in '+previousQuarterShort+' and '+bnkRetAsstPreviousCQ+'% in '+previousYearQuarterShort+'.<br><br>';
+          bankTemplate +=  "In "+currentQuarterShort+", Bank's total Capital Adequacy Ratio (CAR) was at "+bnkCapAdeCurrQuarter+"%, as compared to "+bnkCapAdePreviousQuarter+"% in "+previousQuarterShort+" and "+bnkCapAdePreviousCQ+"% in "+previousYearQuarterShort+".<br><br>";
+          return bankTemplate;
+        }  
         var companyISIN = $("#isin").val();
         var overAllText = "";
         $.ajax({ url: "../controller/CompanyNameController.php",
@@ -1297,7 +1384,14 @@ $(document).ready(function() {
                 newsTemplate +=  '    <td><img src="dist/img/'+indicatorImage+'" alt="Up Tick / Down Tick">'+earRetValPercentage+'%</td>';
                 newsTemplate +=  '  </tr>';
                 newsTemplate +=  '</table><br>';
-                newsTemplate = newsTemplate + overAllText;
+                if($("#banks").css('display') != 'none')
+                {
+                  bankTemplate = $.fn.banksFunction();
+                  newsTemplate = newsTemplate + bankTemplate + overAllText ;
+                }
+                else
+                  newsTemplate = newsTemplate + overAllText;
+                console.log(newsTemplate);
               }
               if(resTemplate == "T2")
               {
@@ -1377,7 +1471,14 @@ $(document).ready(function() {
                 newsTemplate +=  '    <td><img src="dist/img/'+indicatorImage+'"  alt="Up Tick / Down Tick">'+earRetValPercentage+'%</td>';
                 newsTemplate +=  '  </tr>';
                 newsTemplate +=  ' </table><br>';
-                newsTemplate = newsTemplate + overAllText;
+                if ($("#banks").css('display') != 'none')
+                {
+                  bankTemplate = $.fn.banksFunction();
+                  newsTemplate = newsTemplate + bankTemplate + overAllText;
+                }
+                else
+                  newsTemplate = newsTemplate + overAllText;
+                console.log(newsTemplate);
               }
               if(resTemplate == "T3")
               {
@@ -1462,13 +1563,21 @@ $(document).ready(function() {
                 newsTemplate +=  "For the "+resShortCurrentPeriod+resYear+yearEnded+", the Company has achieved total income of &#x20B9;"+shTotCurrentFY+" crore as against &#x20B9;"+shTotPreviousFY+" crore "+shTotPreviousFYCaption+" of "+shTotPreviousFYValue+"% over the corresponding period of the previous year.<br><br>";
                 newsTemplate +=  "For the "+resShortCurrentPeriod+resYear+yearEnded+", the Company has reported profit after tax of &#x20B9;"+shNetCurrentFY+" crore as against &#x20B9;"+shNetPreviousFY+" "+shNetPreviousFYCaption+" of "+shNetPreviousFYValue+"% over the corresponding period of the previous year.<br><br>";
                 newsTemplate +=  "For the "+resShortCurrentPeriod+resYear+yearEnded+", the Company has posted earnings per share (EPS) of &#x20B9;"+shEarCurrentFY+" crore as against &#x20B9;"+shEarPreviousFY+" crore "+shEarPreviousFYCaption+" of "+shEarPreviousFYValue+"% over the corresponding period of the previous year.<br><br>";
-                newsTemplate = newsTemplate + overAllText;
+                if ($("#banks").css('display') != 'none')
+                {
+                  bankTemplate = $.fn.banksFunction();
+                  newsTemplate = newsTemplate + bankTemplate + overAllText ;
+                }
+                else
+                  newsTemplate = newsTemplate + overAllText;
+                console.log(newsTemplate);
               }                                    
             }
         });
+        $("#test").val(newsTemplate);
         if (action == "Insert")
         {
-          /*$.ajax({ url: "../controller/CompanyNameController.php",
+          /*$.ajax({ url: "../controller/FinanceController.php",
             type: 'POST',
             data: {companyISIN:companyISIN},
             success: function (output)
@@ -1477,7 +1586,8 @@ $(document).ready(function() {
             });*/
             alert("add insert");
         }
-      }
+      //}
+      return false;
     }
   });
 });
