@@ -1,7 +1,28 @@
+<?php ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    include_once("../controller/CompanyController.php");
+    $controller = new Controller();
+    if(isset($_POST['submit']))
+    { 
+      if($_POST['submit']==="add")
+        $controller->addCompany($_POST);
+      if($_POST['submit']==="update")
+        $controller->updCompany($_POST);
+    } 
+    else if(isset($_POST['reset']) && ($_POST['reset']==="delete"))
+    {
+      $controller->delCompany($_POST);
+    }
+    
+    $ISINResult     = $controller->listISIN();
+    $industryResult = $controller->listIndustry();
+    $companyResult  = $controller->listCompany();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>NewsFeed</title>
+<title>EquityBulls</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +35,27 @@
 <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+<style>
+  .DivParent {
+    height: 47px;
+    white-space: nowrap;
+}
+.verticallyAlignedDiv {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+.DivHelper {
+    display: inline-block;
+    vertical-align: middle;
+    height:100%;
+}
+</style>
 <!--[if lt IE 9]>
 <script src="assets/js/html5shiv.min.js"></script>
 <script src="assets/js/respond.min.js"></script>
@@ -57,8 +99,27 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav main_nav">
           <li class="active"><a href="index.html"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-          <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
+          <li><a href="#">Mutual Funds</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Commodities</a></li>
+          <li><a href="#">IPO</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Industry News</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li>
+              <div class="DivParent">
+                <div class="verticallyAlignedDiv">
+                  <!--input type="text" placeholder="Search Company" name="search"><button type="submit"><i class="fa fa-search"></i></button-->
+                  <select id="isin" name="isin" class="form-control select2 required" style="width: 355px;">
+                    <option value="0">Select a Company</option>
+                    <option>Test</option>
+                    <option>Hai</option>
+                  </select>  
+                </div>
+                <div class="DivHelper"></div>
+              </div>
+          </li>
+          <!--li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Android</a></li>
               <li><a href="#">Samsung</a></li>
@@ -66,11 +127,9 @@
               <li><a href="#">Walton Mobile</a></li>
               <li><a href="#">Sympony</a></li>
             </ul>
-          </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
+          </li>          
           <li><a href="pages/contact.html">Contact Us</a></li>
-          <li><a href="pages/404.html">404 Page</a></li>
+          <li><a href="pages/404.html">404 Page</a></li-->
         </ul>
       </div>
     </nav>
@@ -502,10 +561,22 @@
 <script src="assets/js/jquery.min.js"></script> 
 <script src="assets/js/wow.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script> 
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script src="assets/js/slick.min.js"></script> 
 <script src="assets/js/jquery.li-scroller.1.0.js"></script> 
 <script src="assets/js/jquery.newsTicker.min.js"></script> 
 <script src="assets/js/jquery.fancybox.pack.js"></script> 
 <script src="assets/js/custom.js"></script>
+<script>
+  $(function () {
+    bsCustomFileInput.init();
+      $('.select2').select2()
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })
+  });
+</script>
 </body>
 </html>

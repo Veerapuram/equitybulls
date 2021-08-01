@@ -1,3 +1,10 @@
+<?php session_start();
+    if(!isset($_SESSION['email']))
+    {
+        header("Location:../index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,6 +143,18 @@
                 <a href="view/GoldSilverView.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Gold Silver Admin</p>
+                </a>
+              </li>
+        <li class="nav-item">
+                <a href="view/financialResultsView.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Financial Results</p>
+                </a>
+              </li>
+        <li class="nav-item">
+                <a href="Logout.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>

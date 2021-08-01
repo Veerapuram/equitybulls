@@ -1,4 +1,10 @@
-<?php	ini_set('display_errors', 1);
+<?php session_start();
+    if(!isset($_SESSION['email']))
+    {
+        header("Location:../index.php");
+        exit;
+    }
+    ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
 		include_once("../controller/NseController.php");
@@ -160,6 +166,18 @@
                   <p>Gold Silver Admin</p>
                 </a>
               </li>
+        <li class="nav-item">
+                <a href="financialResultsView.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Financial Results</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../Logout.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>              
             </ul>
           </li>
         </ul>
